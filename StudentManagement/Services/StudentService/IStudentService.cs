@@ -7,6 +7,5 @@
        Task<Response<List<Student>>> AddStudent(Student newStudent);
        Task<Response<Student>> UpdateStudent(Student updatedStudent);
        Task<Response<List<Student>>> DeleteStudent(int id);
-
     }
 }

@@ -5,5 +5,7 @@
         public int Id { get; set; }
         public string Name { get; set; } = "Long";
         public Gender Gender { get; set; } = Gender.Male;
+
+        public int Course_Id { get; set; }
     }
 }

@@ -76,6 +76,7 @@ namespace StudentManagement.Services.StudentService
             var student = await _context.Students.FirstOrDefaultAsync(c => c.Id == updatedStudent.Id);
             student.Name = updatedStudent.Name;
             student.Gender = updatedStudent.Gender;
+            student.Course_Id = updatedStudent.Course_Id;
 
             await _context.SaveChangesAsync();
             response.Data = student;

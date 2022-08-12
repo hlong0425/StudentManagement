@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StudentManagement.DTO;
 using StudentManagement.Services.StudentService;
 
 namespace StudentManagement.Controllers
@@ -9,6 +10,7 @@ namespace StudentManagement.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
+        
 
         public StudentController(IStudentService studentService)
         {
@@ -17,9 +19,7 @@ namespace StudentManagement.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-
-
-        public async Task<ActionResult<Response<List<Student>>>> Get()
+        public async Task<ActionResult<Response<List<GetStudentDTO>>>> Get()
         {
             var res = await _studentService.GetAllStudents();
             return Ok(res);
@@ -27,23 +27,21 @@ namespace StudentManagement.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<Response<Student>>> GetSingle(int id)
+        public async Task<ActionResult<Response<GetStudentDTO>>> GetSingle(int id)
         {
             var res = await _studentService.GetStudentById(id);
             return Ok(res);
         }
 
-
         [HttpPost]
-        public async Task<ActionResult<Response<List<Student>>>> AddStudent(Student newStudent)
+        public async Task<ActionResult<Response<List<GetStudentDTO>>>> AddStudent(AddStudentDTO newStudent)
         {
             var res = await _studentService.AddStudent(newStudent);
             return Ok(res);
         }
-
         
         [HttpPut]
-        public async Task<ActionResult<Response<Student>>> UpdateStudent(Student updatedStudent)
+        public async Task<ActionResult<Response<GetStudentDTO>>> UpdateStudent(UpdateStudentDTO updatedStudent)
         {
             var res = await _studentService.UpdateStudent(updatedStudent);
             if(res.Data == null)

@@ -1,8 +1,7 @@
-﻿namespace StudentManagement.Models
+﻿namespace StudentManagement.DTO
 {
-    public class Student
+    public class AddStudentDTO
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public Gender Gender { get; set; } = Gender.Male;
     }

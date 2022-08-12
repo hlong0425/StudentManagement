@@ -11,8 +11,8 @@ using StudentManagement.Data;
 namespace StudentManagement.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220807090131_initMigration")]
-    partial class initMigration
+    [Migration("20220812162706_UpdateNewStudentModel")]
+    partial class UpdateNewStudentModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,9 +30,6 @@ namespace StudentManagement.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Course_Id")
-                        .HasColumnType("int");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");

@@ -18,6 +18,33 @@ namespace StudentManagement.Services.StudentService
             _mapper = mapper;
         }
 
+        public async Task<Response<GetStudentDTO>> AddCourse(AddCourseDTO addCourseParam)
+        {
+            var response = new Response<GetStudentDTO>();
+            try
+            {
+                var student = await _context.Students.FirstOrDefaultAsync(student => student.Id == addCourseParam.StudentId);
+                var course = await _context.Courses.FirstOrDefaultAsync(course => course.Id == addCourseParam.CourseId);
+
+                if (student == null) throw new Exception("Student is not exist");
+                if (course == null) throw new Exception("Course is not exist");
+
+
+                student.Courses.Add(course); 
+                await _context.SaveChangesAsync();
+
+                response.Data = _mapper.Map<GetStudentDTO>(student);
+            }
+
+            catch(Exception ex)
+            {
+                response.Success = false;
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
+
         public async Task<Response<List<GetStudentDTO>>> AddStudent(AddStudentDTO newStudent)
         {  
             var response= new Response<List<GetStudentDTO>>();
@@ -67,6 +94,7 @@ namespace StudentManagement.Services.StudentService
             {
                 var dbStudents = await _context
                     .Students
+                    .Include(s => s.Courses)
                     .Select(student => _mapper.Map<GetStudentDTO>(student))
                     .ToListAsync();
 

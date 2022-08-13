@@ -39,7 +39,15 @@ namespace StudentManagement.Controllers
             var res = await _studentService.AddStudent(newStudent);
             return Ok(res);
         }
-        
+
+        [HttpPost]
+        [Route("{addCourse}")]
+        public async Task<ActionResult<Response<List<GetStudentDTO>>>> AddCourse(AddCourseDTO addCourseParam)
+        {
+            var res = await _studentService.AddCourse(addCourseParam);
+            return Ok(res);
+        }
+
         [HttpPut]
         public async Task<ActionResult<Response<GetStudentDTO>>> UpdateStudent(UpdateStudentDTO updatedStudent)
         {

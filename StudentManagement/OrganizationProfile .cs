@@ -17,7 +17,6 @@ namespace StudentManagement
             CreateMap<AddStudentDTO, Student>();
             CreateMap<Student, GetStudentDTO>();
             CreateMap<UpdateStudentDTO, Student>();
-
         }
     }
 }

@@ -9,5 +9,6 @@ namespace StudentManagement.Services.StudentService
        Task<Response<List<GetStudentDTO>>> AddStudent(AddStudentDTO newStudent);
        Task<Response<GetStudentDTO>> UpdateStudent(UpdateStudentDTO updatedStudent);
        Task<Response<List<GetStudentDTO>>> DeleteStudent(int id);
+       Task<Response<GetStudentDTO>> AddCourse(AddCourseDTO addCourseParam);
     }
 }

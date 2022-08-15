@@ -17,6 +17,7 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 //Dependency Injection
 builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 
 var app = builder.Build();

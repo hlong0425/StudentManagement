@@ -1,5 +1,10 @@
 # StudentManageme
 
+### POST: LOGIN
+![image](https://user-images.githubusercontent.com/46487001/184668962-c63370ac-2f5b-45ba-97e6-3cb49366d416.png)
+![image](https://user-images.githubusercontent.com/46487001/184669155-ec8b5e68-2acc-430c-8cf4-95b758d77ba1.png)
+
+
 ### GET: ALL Students
 ![image](https://user-images.githubusercontent.com/46487001/183287085-da226054-019c-41fa-94c0-075cfddb6e66.png)
 
